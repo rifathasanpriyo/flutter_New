@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Day',
-      theme: ThemeData(primarySwatch: Colors.blue,brightness: Brightness.dark),
+      //theme: ThemeData(primarySwatch: Colors.blue,brightness: Brightness.dark),
       home: homeScreen(),
     );
   }
@@ -26,46 +27,67 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  int _myindex=0;
-  final _Pages=[
-      Container(color: Colors.amber,),
-      Container(color: Colors.white,),
-      Container(color: Colors.red,),
+ alertDialog()
+ {
+       showDialog(context: context, builder: (_){
+         return CupertinoAlertDialog(
+          title: Text('exit dialog'),
+          content: Row(
+            children: [
+              ElevatedButton(onPressed: (){}, child: Text('YES'),),
+              SizedBox(width: 10,),
+             ElevatedButton(onPressed: (){}, child: Text('NO'),),
+
+            
+            
+            ],
+          ),
+         );
+
+       }
+       );   
+ }
+
+ bottomSheet()
+ {
+   return  showModalBottomSheet(context: context, builder: (_){
+       
+       return Container(
+        height: 200,
+       
+       );
+   });
 
 
-
-  ];
+ }
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
+       
         appBar: AppBar(
-          title: Center(child: Text('Flutter',style: TextStyle(color: Colors.white),)),
-          backgroundColor: Colors.blue,
-          ),
-       body: Row(
-         children: [
-           NavigationRail(
-            onDestinationSelected: (int index)
-            {
-             setState(() {
-               _myindex=index;
-             });
-            },
-            labelType: NavigationRailLabelType.all,
-            elevation: 10,
-            backgroundColor: Colors.grey,
-           
-            destinations: [
-              NavigationRailDestination(icon: Icon(Icons.home), label: Text('Home')),
-              NavigationRailDestination(icon: Icon(Icons.add), label: Text('Add')),
-              NavigationRailDestination(icon: Icon(Icons.search), label: Text('Search')),
+          title: Text("Flutter"),
+          backgroundColor: Colors.red,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+            ElevatedButton(
+                onPressed: ()=>alertDialog()
+            , child: Text("alert_dialog"),
+            
+            ),
+           ElevatedButton(
+                onPressed: ()=>bottomSheet()
+            , child: Text("Bottom_Sheet"),
+            
+            ),
+          
             ],
-           selectedIndex: _myindex),
-           Expanded(child: _Pages[_myindex]),
-         ],
-       ),
-      ),
+          ),
+        ),
+
     );
   }
 }
