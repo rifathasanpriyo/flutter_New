@@ -27,38 +27,44 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
- alertDialog()
+ Set<Map> language={
+  {
+    'language_name':'C language',
+    'discription':'C is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
+
+  },
+{
+  'language_name':'C++ language',
+    'discription':'C++ is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
+
+},
+{
+ 'language_name':'Python language',
+    'discription':'Python is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
+
+},
+{
+ 'language_name':'java language',
+    'discription':'java is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
+
+},
+{
+ 'language_name':'Dart language',
+    'discription':'Dart is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
+
+},
+{
+ 'language_name':'c# language',
+    'discription':'c# is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
+
+},
+
+ };
+ showsnakebar()
  {
-       showDialog(context: context, builder: (_){
-         return CupertinoAlertDialog(
-          title: Text('exit dialog'),
-          content: Row(
-            children: [
-              ElevatedButton(onPressed: (){}, child: Text('YES'),),
-              SizedBox(width: 10,),
-             ElevatedButton(onPressed: (){}, child: Text('NO'),),
-
-            
-            
-            ],
-          ),
-         );
-
-       }
-       );   
- }
-
- bottomSheet()
- {
-   return  showModalBottomSheet(context: context, builder: (_){
-       
-       return Container(
-        height: 200,
-       
-       );
-   });
-
-
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('Reffresh successful')),
+  );
  }
   @override
   Widget build(BuildContext context) {
@@ -68,25 +74,33 @@ class _homeScreenState extends State<homeScreen> {
           title: Text("Flutter"),
           backgroundColor: Colors.red,
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-            ElevatedButton(
-                onPressed: ()=>alertDialog()
-            , child: Text("alert_dialog"),
-            
-            ),
-           ElevatedButton(
-                onPressed: ()=>bottomSheet()
-            , child: Text("Bottom_Sheet"),
-            
-            ),
-          
-            ],
+        body:RefreshIndicator(
+          onRefresh:()=> Future.delayed(Duration(seconds: 3),
+          ()
+          {
+                language.add({
+                  'language_name':'Baaler Language'
+                },
+                ); 
+                setState(() {
+                  
+                }
+                
+                );
+                showsnakebar();
+                },
+           
           ),
-        ),
+          
+          child: ListView.builder(
+            
+            itemCount: language.length,
+            itemBuilder: (context, index) {
+              return Text(language.elementAt(index)['language_name']);
+            },
+          
+          ),
+        )
 
     );
   }
