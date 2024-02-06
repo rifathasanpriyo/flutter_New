@@ -28,100 +28,43 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  bool _check_box = false;
-  bool _switch_box = false;
-  int _group_radio = 1;
-  List<bool> is_selected=[false,true];
+  PageController _pageController= PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: ()
+      {
+          _pageController.nextPage(duration: Duration(seconds: 1), curve: Curves.bounceInOut);
+
+      }),
       appBar: AppBar(
         title: Text("Flutter"),
         backgroundColor: Colors.red,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Checkbox(
-                value: _check_box,
-                onChanged: (value) {
-                  setState(() {
-                    _check_box = value!;
-                  });
-                }),
-            Divider(
-              height: 10,
-              color: Colors.blue,
-            ),
-            Switch(
-                value: _switch_box,
-                onChanged: (value) {
-                  setState(() {
-                    _switch_box = value!;
-                  });
-                }),
-            Divider(
-              height: 10,
-              color: Colors.blue,
-            ),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Radio(
-                        value: 1,
-                        groupValue: _group_radio,
-                        onChanged: (value) {
-                          setState(() {
-                            _group_radio = value!;
-                          });
-                        }),
-                    Text('Male'),
-                  ],
-                  
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Radio(
-                        value: 2,
-                        groupValue: _group_radio,
-                        onChanged: (value) {
-                          setState(() {
-                            _group_radio = value!;
-                          });
-                        }),
-                    Text('Female'),
-                  ],
-                  
-                ),
-              ],
-            ),
-            Divider(
-              height: 10,
-              color: Colors.blue,
-            ),
-              ToggleButtons(
-                children:<Widget> [
-                Icon(Icons.wifi),
-                Icon(Icons.bluetooth),
-                ],
-                 isSelected: is_selected,
-                 onPressed: (int index){
-                  setState(() {
-                    is_selected[index]=!is_selected[index];
-                    
-                  });
-                  
-                 },
-                         
-
-                 ),
-
-          ],
-        ),
+      body: PageView(
+        controller: _pageController,
+        children: [ 
+          Container(
+            height: 200,
+            width: 200,
+            color: Colors.blue,
+          ),
+          Container(
+            height: 200,
+            width: 200,
+            color: Colors.yellow,
+          ),
+          Container(
+            height: 200,
+            width: 200,
+            color: Colors.pink,
+          ),
+          Container(
+            height: 200,
+            width: 200,
+            color: Colors.green,
+          )
+        ],
       ),
     );
   }
