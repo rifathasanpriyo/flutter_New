@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class homeScreen extends StatefulWidget {
   const homeScreen({super.key});
 
@@ -27,83 +28,101 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
- Set<Map> language={
-  {
-    'language_name':'C language',
-    'discription':'C is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
-
-  },
-{
-  'language_name':'C++ language',
-    'discription':'C++ is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
-
-},
-{
- 'language_name':'Python language',
-    'discription':'Python is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
-
-},
-{
- 'language_name':'java language',
-    'discription':'java is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
-
-},
-{
- 'language_name':'Dart language',
-    'discription':'Dart is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
-
-},
-{
- 'language_name':'c# language',
-    'discription':'c# is a versatile, procedural programming language known for its efficiency and portability. It widely used for system development, embedded systems, and low-level programming',
-
-},
-
- };
- showsnakebar()
- {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Reffresh successful')),
-  );
- }
+  bool _check_box = false;
+  bool _switch_box = false;
+  int _group_radio = 1;
+  List<bool> is_selected=[false,true];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       
-        appBar: AppBar(
-          title: Text("Flutter"),
-          backgroundColor: Colors.red,
-        ),
-        body:RefreshIndicator(
-          onRefresh:()=> Future.delayed(Duration(seconds: 3),
-          ()
-          {
-                language.add({
-                  'language_name':'Baaler Language'
-                },
-                ); 
-                setState(() {
+      appBar: AppBar(
+        title: Text("Flutter"),
+        backgroundColor: Colors.red,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Checkbox(
+                value: _check_box,
+                onChanged: (value) {
+                  setState(() {
+                    _check_box = value!;
+                  });
+                }),
+            Divider(
+              height: 10,
+              color: Colors.blue,
+            ),
+            Switch(
+                value: _switch_box,
+                onChanged: (value) {
+                  setState(() {
+                    _switch_box = value!;
+                  });
+                }),
+            Divider(
+              height: 10,
+              color: Colors.blue,
+            ),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Radio(
+                        value: 1,
+                        groupValue: _group_radio,
+                        onChanged: (value) {
+                          setState(() {
+                            _group_radio = value!;
+                          });
+                        }),
+                    Text('Male'),
+                  ],
                   
-                }
-                
-                );
-                showsnakebar();
-                },
-           
-          ),
-          
-          child: ListView.builder(
-            
-            itemCount: language.length,
-            itemBuilder: (context, index) {
-              return Text(language.elementAt(index)['language_name']);
-            },
-          
-          ),
-        )
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Radio(
+                        value: 2,
+                        groupValue: _group_radio,
+                        onChanged: (value) {
+                          setState(() {
+                            _group_radio = value!;
+                          });
+                        }),
+                    Text('Female'),
+                  ],
+                  
+                ),
+              ],
+            ),
+            Divider(
+              height: 10,
+              color: Colors.blue,
+            ),
+              ToggleButtons(
+                children:<Widget> [
+                Icon(Icons.wifi),
+                Icon(Icons.bluetooth),
+                ],
+                 isSelected: is_selected,
+                 onPressed: (int index){
+                  setState(() {
+                    is_selected[index]=!is_selected[index];
+                    
+                  });
+                  
+                 },
+                         
 
+                 ),
+
+          ],
+        ),
+      ),
     );
   }
 }
-
-
