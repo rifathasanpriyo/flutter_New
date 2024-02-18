@@ -28,42 +28,36 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  double rr=20;
-  double yy=20;
-  
-  int u=0;
-   no_button()
-   {
-      setState(() {
-        rr=rr+20;
-        yy=yy+20;
-        u=1;
-      });
-      
-   }
-
+ var gender=['Male','Female','Baal'];
+  var index='Male';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: AppBar(
-         //title: Text("Flutter"),
-        // backgroundColor: Colors.red,
+         title: Text("Flutter"),
+        backgroundColor: Colors.red,
        ),
-     body: Center(child: ExpansionTile(
-      title: Text('Today News'),
-      subtitle: Text('My name is Rifat Hasan'),
-      leading: CircleAvatar(backgroundColor: Colors.black,),
-      children: [
-         Container(
-          height: 100,
-          width: 500,
-          color: Colors.blue,
+       body: DropdownButton(
+        value: index,
+        items: gender.map(
+          (value) {
+            return DropdownMenuItem(
+              value:value,
+              child: Text(value,style: TextStyle(color: Colors.black),));
+          }
+          
+          ).toList(),
+          
+           
+        onChanged: (value){
+          setState(() {
+            index=value!;
+          });
+          
 
-         )
-
-      ],
-      )
-      )
+        }
+        ),
+      
       
       
        
