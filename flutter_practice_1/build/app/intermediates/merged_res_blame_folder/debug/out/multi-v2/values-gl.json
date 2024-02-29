@@ -4,24 +4,7 @@
             "outputFile": "com.example.flutter_practice_1.app-mergeDebugResources-21:/values-gl/values-gl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\bab197ec3f4750be82669253ecba1d19\\transformed\\jetified-exoplayer-core-2.17.1\\res\\values-gl\\values-gl.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,129,192,257,336,413,489,588,684",
-                        "endColumns": "73,62,64,78,76,75,98,95,68",
-                        "endOffsets": "124,187,252,331,408,484,583,679,748"
-                    },
-                    "to": {
-                        "startLines": "9,10,11,12,13,14,15,16,17",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "783,857,920,985,1064,1141,1217,1316,1412",
-                        "endColumns": "73,62,64,78,76,75,98,95,68",
-                        "endOffsets": "852,915,980,1059,1136,1212,1311,1407,1476"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\889ce5bd12f1117e5357d5fcdb5e1305\\transformed\\core-1.10.1\\res\\values-gl\\values-gl.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\0235b77ff31bafac24f24ba4755d72b8\\transformed\\core-1.10.1\\res\\values-gl\\values-gl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -35,6 +18,23 @@
                         "startOffsets": "55,154,256,356,454,561,667,1481",
                         "endColumns": "98,101,99,97,106,105,115,100",
                         "endOffsets": "149,251,351,449,556,662,778,1577"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\04603ba7789d42db5e6ccd80b6ceef78\\transformed\\jetified-exoplayer-core-2.17.1\\res\\values-gl\\values-gl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,129,192,257,336,413,489,588,684",
+                        "endColumns": "73,62,64,78,76,75,98,95,68",
+                        "endOffsets": "124,187,252,331,408,484,583,679,748"
+                    },
+                    "to": {
+                        "startLines": "9,10,11,12,13,14,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "783,857,920,985,1064,1141,1217,1316,1412",
+                        "endColumns": "73,62,64,78,76,75,98,95,68",
+                        "endOffsets": "852,915,980,1059,1136,1212,1311,1407,1476"
                     }
                 }
             ]

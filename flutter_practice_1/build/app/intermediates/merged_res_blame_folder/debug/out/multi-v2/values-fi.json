@@ -4,24 +4,7 @@
             "outputFile": "com.example.flutter_practice_1.app-mergeDebugResources-21:/values-fi/values-fi.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\bab197ec3f4750be82669253ecba1d19\\transformed\\jetified-exoplayer-core-2.17.1\\res\\values-fi\\values-fi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,120,179,241,308,385,455,549,641",
-                        "endColumns": "64,58,61,66,76,69,93,91,70",
-                        "endOffsets": "115,174,236,303,380,450,544,636,707"
-                    },
-                    "to": {
-                        "startLines": "9,10,11,12,13,14,15,16,17",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "789,854,913,975,1042,1119,1189,1283,1375",
-                        "endColumns": "64,58,61,66,76,69,93,91,70",
-                        "endOffsets": "849,908,970,1037,1114,1184,1278,1370,1441"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\889ce5bd12f1117e5357d5fcdb5e1305\\transformed\\core-1.10.1\\res\\values-fi\\values-fi.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\0235b77ff31bafac24f24ba4755d72b8\\transformed\\core-1.10.1\\res\\values-fi\\values-fi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -35,6 +18,23 @@
                         "startOffsets": "55,151,253,351,456,561,673,1446",
                         "endColumns": "95,101,97,104,104,111,115,100",
                         "endOffsets": "146,248,346,451,556,668,784,1542"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\04603ba7789d42db5e6ccd80b6ceef78\\transformed\\jetified-exoplayer-core-2.17.1\\res\\values-fi\\values-fi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,120,179,241,308,385,455,549,641",
+                        "endColumns": "64,58,61,66,76,69,93,91,70",
+                        "endOffsets": "115,174,236,303,380,450,544,636,707"
+                    },
+                    "to": {
+                        "startLines": "9,10,11,12,13,14,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "789,854,913,975,1042,1119,1189,1283,1375",
+                        "endColumns": "64,58,61,66,76,69,93,91,70",
+                        "endOffsets": "849,908,970,1037,1114,1184,1278,1370,1441"
                     }
                 }
             ]

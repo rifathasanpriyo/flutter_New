@@ -1,8 +1,4 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:appinio_video_player/appinio_video_player.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,36 +31,30 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late CachedVideoPlayerController _videoPlayerController;
-  late CustomVideoPlayerController _customVideoPlayerController;
-  @override
-  void initState() {
-    _videoPlayerController = CachedVideoPlayerController.network(
-        'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4')
-      ..initialize().then((value) => setState(() {}));
-    _customVideoPlayerController = CustomVideoPlayerController(
-        context: context,
-        videoPlayerController: _videoPlayerController,
-        customVideoPlayerSettings: CustomVideoPlayerSettings(
-        placeholderWidget: Center( child: CircularProgressIndicator(),)
-
-        ));
-    super.initState();
-  }
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    _customVideoPlayerController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('V I D E '),
+        title: Text('Ramadan 2023 '),
       ),
-      body: CustomVideoPlayer(customVideoPlayerController: _customVideoPlayerController),
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Dhaka',style: TextStyle(color: Colors.white),),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue, 
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Comila',style: TextStyle(color: Colors.white),),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue, 
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
