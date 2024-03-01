@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_1/devision.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,43 +19,23 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Day',
       //theme: ThemeData(primarySwatch: Colors.blue,brightness: Brightness.dark),
-      home: HomeScreen(),
+      home: Devison(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+// class HomeScreen extends StatefulWidget {
+//   const HomeScreen({Key? key}) : super(key: key);
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+//   @override
+//   State<HomeScreen> createState() => _HomeScreenState();
+// }
 
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Ramadan 2023 '),
-      ),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Dhaka',style: TextStyle(color: Colors.white),),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue, 
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Comila',style: TextStyle(color: Colors.white),),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue, 
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+// class _HomeScreenState extends State<HomeScreen> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+      
+//     );
+//   }
+// }
