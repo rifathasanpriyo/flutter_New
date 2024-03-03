@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_1/devision.dart';
+import 'package:flutter_practice_1/romjan_page.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -20,22 +22,14 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Day',
       //theme: ThemeData(primarySwatch: Colors.blue,brightness: Brightness.dark),
       home: Devison(),
+      routes: {
+       '/devison':(context) => Devison(),
+       '/romajan':(context) => RomjanPage(),
+
+      },
+      initialRoute: '/devison',
     );
   }
 }
 
-// class HomeScreen extends StatefulWidget {
-//   const HomeScreen({Key? key}) : super(key: key);
 
-//   @override
-//   State<HomeScreen> createState() => _HomeScreenState();
-// }
-
-// class _HomeScreenState extends State<HomeScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-      
-//     );
-//   }
-// }

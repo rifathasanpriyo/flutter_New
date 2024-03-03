@@ -1,4 +1,8 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_practice_1/shari_iftar.dart';
 
 class RomjanPage extends StatefulWidget {
   const RomjanPage({super.key});
@@ -44,50 +48,36 @@ class _RomjanPageState extends State<RomjanPage> {
 
 
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(top: 30),
-        child: Container(
-        child: ListView( 
-           children: romjan_count.map((value) {
-            return Material( 
-            child: InkWell(
+      body: Column( 
+       children: [ 
+        Expanded(
+          child: ListView.builder(
+            itemCount: romjan_count.length,
+            itemBuilder: (context,index){
+             return InkWell(
               onTap: () {
-                
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ShariIftar(newindex: index)));
               },
-              splashColor: Colors.red,
-              child: Padding(
-                
-                padding: const EdgeInsets.all(8.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration( 
-                     borderRadius: BorderRadius.circular(10),
-                                         color: const Color.fromARGB(255, 136, 180, 215),  
-                    ),
-        
-                         child: Padding(
-                           padding: const EdgeInsets.all(8.0),
-                           child: Center(child: Text(value,style: TextStyle( fontSize: 17,fontWeight: FontWeight.bold),)),
-        
-                           
-                         ),
-                         
-                  ),
-                ),
-              ),
+               child: Card(
+               
+                 child: Container( 
+                  height: 50,
+                  width: 20,
+                  child: Center(child: Text(romjan_count[index].toString())),
+                 ),
+               ),
+             );
+          
+            }
+            
+            
             ),
-        
-            );
-        
-           }
-           ).toList(),
-        
         )
-        
-        ),
+       ],
+
       ),
 
     );
