@@ -28,7 +28,7 @@ class _DevisonState extends State<Devison> {
             child: ElevatedButton(
               onPressed: () { 
                 
-                  Navigator.pushNamed(context,'/romajan');
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 0))));
                 
                 
               },
@@ -46,7 +46,7 @@ class _DevisonState extends State<Devison> {
                
             ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context,'/romajan');
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 1))));
             },
             child: Text('চট্টগ্রাম ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
             style: ElevatedButton.styleFrom(
@@ -56,7 +56,7 @@ class _DevisonState extends State<Devison> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context,'/romajan');
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 2))));
             },
             
             child: Text('সিলেট ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
@@ -74,7 +74,7 @@ class _DevisonState extends State<Devison> {
            children: [ 
                
             ElevatedButton(
-            onPressed: () {Navigator.pushNamed(context,'/romajan');},
+            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 3))));},
             child: Text('রাজশাহী ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 33, 116, 184), 
@@ -82,7 +82,10 @@ class _DevisonState extends State<Devison> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {Navigator.pushNamed(context,'/romajan');},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 4))));
+              
+              },
             child: Text('বরিশাল ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 33, 116, 184), 
@@ -98,7 +101,10 @@ class _DevisonState extends State<Devison> {
            children: [ 
                
             ElevatedButton(
-            onPressed: () {Navigator.pushNamed(context,'/romajan');},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 5))));
+              
+              },
             child: Text('রংপুর ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 33, 116, 184), 
@@ -106,7 +112,9 @@ class _DevisonState extends State<Devison> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {Navigator.pushNamed(context,'/romajan');},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 6))));
+              },
             child: Text('খুলনা ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 33, 116, 184), 
@@ -122,7 +130,9 @@ class _DevisonState extends State<Devison> {
            children: [ 
                
             ElevatedButton(
-            onPressed: () {Navigator.pushNamed(context,'/romajan');},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 7))));
+              },
             child: Text('ময়মনসিংহ ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 33, 116, 184),
@@ -130,7 +140,9 @@ class _DevisonState extends State<Devison> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {Navigator.pushNamed(context,'/romajan');},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => RomjanPage(newindex: 8))));
+              },
             child: Text('অনান্য ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 33, 116, 184), 

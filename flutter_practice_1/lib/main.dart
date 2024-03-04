@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       home: Devison(),
       routes: {
        '/devison':(context) => Devison(),
-       '/romajan':(context) => RomjanPage(),
+      //  '/romajan':(context) => RomjanPage(),
 
       },
       initialRoute: '/devison',

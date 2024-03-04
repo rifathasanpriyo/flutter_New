@@ -5,7 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_practice_1/shari_iftar.dart';
 
 class RomjanPage extends StatefulWidget {
-  const RomjanPage({super.key});
+  final int? newindex;
+
+  const RomjanPage({required this.newindex});
 
   @override
   State<RomjanPage> createState() => _RomjanPageState();
@@ -59,7 +61,8 @@ class _RomjanPageState extends State<RomjanPage> {
             itemBuilder: (context,index){
              return InkWell(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ShariIftar(newindex: index)));
+                print(widget.newindex);
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ShariIftar(newindex: index, oldindex: widget.newindex)));
               },
                child: Card(
                
