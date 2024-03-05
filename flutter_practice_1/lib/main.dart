@@ -5,69 +5,81 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Day',
-      theme: ThemeData(primarySwatch: Colors.blue,brightness: Brightness.dark),
-      home: homeScreen(),
+      theme: ThemeData(primarySwatch: Colors.blue, brightness: Brightness.dark),
+      home: HomeScreen(),
     );
   }
 }
-class homeScreen extends StatefulWidget {
-  const homeScreen({super.key});
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<homeScreen> createState() => _homeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _homeScreenState extends State<homeScreen> {
-  int _myindex=0;
-  final _Pages=[
-      Container(color: Colors.amber,),
-      Container(color: Colors.white,),
-      Container(color: Colors.red,),
-
-
-
-  ];
+class _HomeScreenState extends State<HomeScreen> {
+  TextEditingController _controller=TextEditingController();
+  final _formkey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Flutter',style: TextStyle(color: Colors.white),)),
-          backgroundColor: Colors.blue,
+          title: Center(
+            child: Text(
+              'Flutter',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
-       body: Row(
-         children: [
-           NavigationRail(
-            onDestinationSelected: (int index)
-            {
-             setState(() {
-               _myindex=index;
-             });
-            },
-            labelType: NavigationRailLabelType.all,
-            elevation: 10,
-            backgroundColor: Colors.grey,
-           
-            destinations: [
-              NavigationRailDestination(icon: Icon(Icons.home), label: Text('Home')),
-              NavigationRailDestination(icon: Icon(Icons.add), label: Text('Add')),
-              NavigationRailDestination(icon: Icon(Icons.search), label: Text('Search')),
+          backgroundColor: Colors.blue,
+        ),
+        body: Form(
+          key: _formkey,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: _controller,
+                decoration: InputDecoration(
+                  icon: Icon(Icons.email),
+                 hintText: "email",
+                  border: OutlineInputBorder(),
+                ),
+                 validator: (value) {
+                   if(value==null ||value.isEmpty)
+                   { 
+                      return "Email Not Empty";
+
+                   }
+                 }, 
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                 hintText: "password",
+                  border: OutlineInputBorder(),
+                ),
+                onChanged: (value) {
+                  // Handle text changes here
+                },
+              ),
+              ElevatedButton(onPressed: (){
+                 if(_formkey.currentState!.validate())
+                 {
+                  print('successfull');
+                 }
+
+              }, child: Text('loging'))
             ],
-           selectedIndex: _myindex),
-           Expanded(child: _Pages[_myindex]),
-         ],
-       ),
+          ),
+        ),
       ),
     );
   }
 }
-
-
