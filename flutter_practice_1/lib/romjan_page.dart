@@ -69,7 +69,12 @@ class _RomjanPageState extends State<RomjanPage> {
                  child: Container( 
                   height: 50,
                   width: 20,
-                  child: Center(child: Text(romjan_count[index].toString())),
+                  child: Center(child: Text(romjan_count[index].toString(),style: TextStyle(
+                   fontSize: 17,
+                   fontWeight: FontWeight.bold  
+                  ),
+                  )
+                  ),
                  ),
                ),
              );
