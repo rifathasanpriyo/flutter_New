@@ -48,7 +48,7 @@ class _RomjanPageState extends State<RomjanPage> {
 
   ];
 
-
+ var date= DateTime.now();
   @override
   
   Widget build(BuildContext context) {
@@ -56,33 +56,59 @@ class _RomjanPageState extends State<RomjanPage> {
       body: Column( 
        children: [ 
         Expanded(
-          child: ListView.builder(
-            itemCount: romjan_count.length,
-            itemBuilder: (context,index){
-             return InkWell(
-              onTap: () {
-                print(widget.newindex);
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ShariIftar(newindex: index, oldindex: widget.newindex)));
-              },
-               child: Card(
-               
-                 child: Container( 
-                  height: 50,
-                  width: 20,
-                  child: Center(child: Text(romjan_count[index].toString(),style: TextStyle(
-                   fontSize: 17,
-                   fontWeight: FontWeight.bold  
-                  ),
-                  )
-                  ),
-                 ),
-               ),
-             );
-          
+          child: RefreshIndicator(
+            onRefresh: ()=>Future.delayed(Duration(seconds: 3),
+            (){
+               setState(() {
+                  date = DateTime.now();
+               });
             }
-            
-            
             ),
+            
+            child: ListView.builder(
+              itemCount: romjan_count.length,
+              itemBuilder: (context,index){
+               return InkWell(
+                onTap: () {
+                  print(widget.newindex);
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ShariIftar(newindex: index, oldindex: widget.newindex)));
+                },
+                 child: Card(
+                 
+                   child: Container( 
+                    height: date.day-13==index-1?70:50,
+                    width: 20,
+                    decoration: BoxDecoration( 
+                      color: date.day-13 >=index?Colors.green:Color.fromARGB(179, 227, 223, 223),
+                      borderRadius: BorderRadius.circular(8),
+                      
+                            boxShadow: [
+                             date.day-13==index-1?BoxShadow( 
+                                color: Color.fromARGB(255, 227, 110, 110),
+                                offset: Offset(4, 4),
+                                blurRadius: 5,
+                                spreadRadius: 5
+                              ):BoxShadow( 
+                                color: Colors.grey,
+                                
+                              )
+                            ]
+                    ),
+                    child: Center(child: Text(romjan_count[index].toString(),style: TextStyle(
+                     fontSize: 17,
+                     fontWeight: FontWeight.bold  
+                    ),
+                    )
+                    ),
+                   ),
+                 ),
+               );
+            
+              }
+              
+              
+              ),
+          ),
         )
        ],
 
