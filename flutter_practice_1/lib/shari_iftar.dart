@@ -499,287 +499,100 @@ showModalBottomSheet(context: context, builder: (_){
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder(
-        future: DefaultAssetBundle.of(context).loadString(_get_jsonfile()),
-        
-        builder: (context, snapshot) {
-          var mydata=json.decode(snapshot.data.toString());
-          if(mydata==null)
-          {
-            return Center(child: Text('loading'));
-          }
-          else{
-            return SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 60),
-                child: Column(
-                  
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  
-                  children: [ 
+    return Container(
+      decoration: BoxDecoration( 
+          image: DecorationImage(image: AssetImage('asset/images/RamdanBackground2.png'),
+          fit:BoxFit.cover,
+          // colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), 
+          // BlendMode.darken
+          // )
+          ),
+          
+        ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: FutureBuilder(
+          future: DefaultAssetBundle.of(context).loadString(_get_jsonfile()),
+          
+          builder: (context, snapshot) {
+            var mydata=json.decode(snapshot.data.toString());
+            if(mydata==null)
+            {
+              return Center(child: Text('loading'));
+            }
+            else{
+              return SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 60),
+                  child: Column(
                     
-                      Text(mydata["times"][widget.newindex]["tarik"],style:  TextStyle( 
-
-                        fontSize: 20,
-                      ),),
-                     SizedBox(height: 7,),
-                       Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [ 
-                          
-                          Text('সাহরীর শেষ সময়',style: TextStyle( 
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    
+                    children: [ 
+                      
+                        Text(mydata["times"][widget.newindex]["tarik"],style:  TextStyle( 
+      
+                          fontSize: 20,
+                        ),),
+                       SizedBox(height: 7,),
+                         Row(
+                           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [ 
+                            
+                            Text('সাহরীর শেষ সময়',style: TextStyle( 
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 255, 17, 0)
+                            ),
+                            ),
+                            Text('ইফতারের সময়',style: TextStyle( 
                             fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 255, 17, 0)
-                          ),
-                          ),
-                          Text('ইফতারের সময়',style: TextStyle( 
-                          fontSize: 22,
-                           fontWeight: FontWeight.bold,
-                           color: const Color.fromARGB(255, 0, 255, 8),
-                          ),),
-                        ],
-                       ),
-                
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          
-                        children: [ 
+                             fontWeight: FontWeight.bold,
+                             color: const Color.fromARGB(255, 0, 255, 8),
+                            ),),
+                          ],
+                         ),
+                  
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                             
-                            Text(mydata["times"][widget.newindex]["sahri"],
-                            style:
-                            TextStyle( 
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold
-                            ),
-                            ),
-                            Text(mydata["times"][widget.newindex]["ifter"],
-                            style:
-                            TextStyle( 
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold
-                            ),
-                            ),
-                        ],
+                          children: [ 
+                              
+                              Text(mydata["times"][widget.newindex]["sahri"],
+                              style:
+                              TextStyle( 
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold
+                              ),
+                              ),
+                              Text(mydata["times"][widget.newindex]["ifter"],
+                              style:
+                              TextStyle( 
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold
+                              ),
+                              ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Row( 
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [ 
-                  
-                       Padding(
-                         padding: const EdgeInsets.only(top: 100),
-                         child: InkWell(
-                          onTap: () {
-                            buttom_sheet();
-                          },
-                          splashColor: const Color.fromARGB(255, 140, 136, 136),
-                           child: Ink(
-                           height: 130,
-                           width: 150,
-                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow( 
-                                color: Colors.grey,
-                                offset: Offset(4, 4),
-                                blurRadius: 5,
-                                spreadRadius: 5
-                              )
-                            ]
-                           
-                            
-                           ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [ 
-                                  Image.asset('asset/images/moon_icon.png',width: 100,height: 70,),
-                                  Text('রোজার নিয়ত',style: TextStyle( 
-                              
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold
-                                  ),)
-                                ],
-                              
-                              ),
-                            )
-                           ),
-                         ),
-                       ),
-
-
-
-
-
-                       Padding(
-                         padding: const EdgeInsets.only(top: 100),
-                         child: InkWell(
-                          onTap: () {
-                            button_sheet2();
-                          },
-                          splashColor: const Color.fromARGB(255, 140, 136, 136),
-                           child: Ink(
-                           height: 130,
-                           width: 150,
-                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow( 
-                                color: Colors.grey,
-                                offset: Offset(4, 4),
-                                blurRadius: 5,
-                                spreadRadius: 5
-                              )
-                            ]
-                           
-                            
-                           ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(9),
-                              child: Column(
-                                children: [ 
-                                  Image.asset('asset/images/alert_icon.png',width: 100,height: 60,),
-                                  Text('রোজা ভাঙ্গার',style: TextStyle( 
-                              
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold
-                                  ),),
-                                  Text('কারন',style: TextStyle( 
-                              
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold
-                                  ),),
-                                ],
-                              
-                              ),
-                            )
-                           ),
-                         ),
-                       )
-                      ],
-                    ),
-
-                   
-                    /*
-
-
- //2nd row
- //2nd row
-                   //2nd row
-
-
-
-                    */
-                     Row( 
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [ 
-                  
-                       Padding(
-                         padding: const EdgeInsets.only(top: 30),
-                         child: InkWell(
-                          onTap: () {
-                            buttom_sheet3();
-                          },
-                          splashColor: const Color.fromARGB(255, 140, 136, 136),
-                           child: Ink(
-                           height: 130,
-                           width: 150,
-                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow( 
-                                color: Colors.grey,
-                                offset: Offset(4, 4),
-                                blurRadius: 5,
-                                spreadRadius: 5
-                              )
-                            ]
-                           
-                            
-                           ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [ 
-                                  Image.asset('asset/images/mosjid_icon.png',width: 100,height: 70,),
-                                  SizedBox(height: 5,),
-                                  Text('রোজার ফজিলত',style: TextStyle( 
-                              
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold
-                                  ),)
-                                ],
-                              
-                              ),
-                            )
-                           ),
-                         ),
-                       ),
-                       Padding(
-                         padding: const EdgeInsets.only(top: 30),
-                         child: InkWell(
-                          onTap: () {
-                            buttom_sheet4();
-                          },
-                          splashColor: const Color.fromARGB(255, 140, 136, 136),
-                           child: Ink(
-                           height: 130,
-                           width: 150,
-                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow( 
-                                color: Colors.grey,
-                                offset: Offset(4, 4),
-                                blurRadius: 5,
-                                spreadRadius: 5
-                              )
-                            ]
-                           
-                            
-                           ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(9),
-                              child: Column(
-                                children: [ 
-                                  Image.asset('asset/images/star_icon.png',width: 100,height: 75,),
-                                  Text('ইফতারের দোয়া',style: TextStyle( 
-                              
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold
-                                  ),),
-                                  
-                                ],
-                              
-                              ),
-                            )
-                           ),
-                         ),
-                       )
-                      ],
-                    ),
-                    SizedBox(height: 30,),
-
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {
-                          buttom_sheet5();
-                        },
-                        splashColor: const Color.fromARGB(255, 140, 136, 136),
-                        child: Ink( 
-                           height: 50,
-                             width: 210,
+                      Row( 
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [ 
+                    
+                         Padding(
+                           padding: const EdgeInsets.only(top: 100),
+                           child: InkWell(
+                            onTap: () {
+                              buttom_sheet();
+                            },
+                            splashColor: const Color.fromARGB(255, 140, 136, 136),
+                             child: Ink(
+                             height: 130,
+                             width: 150,
                              decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 47, 118, 224),
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(8),
                               boxShadow: [
                                 BoxShadow( 
@@ -790,30 +603,229 @@ showModalBottomSheet(context: context, builder: (_){
                                 )
                               ]
                              
-                        
+                              
                              ),
-                           child: Column( 
-                         children: [ 
-                          SizedBox(height: 8,),
-                          Text('ইসলামিক প্রশ্ন ও উত্তর',style:  TextStyle( 
-                        
-                            color: Colors.white,
-                             fontSize: 20,
-                             fontWeight: FontWeight.bold
-                          ),)
-                         ],
-                        
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [ 
+                                    Image.asset('asset/images/moon_icon.png',width: 100,height: 70,),
+                                    Text('রোজার নিয়ত',style: TextStyle( 
+                                
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold
+                                    ),)
+                                  ],
+                                
+                                ),
+                              )
+                             ),
                            ),
-                        ),
+                         ),
+      
+      
+      
+      
+      
+                         Padding(
+                           padding: const EdgeInsets.only(top: 100),
+                           child: InkWell(
+                            onTap: () {
+                              button_sheet2();
+                            },
+                            splashColor: const Color.fromARGB(255, 140, 136, 136),
+                             child: Ink(
+                             height: 130,
+                             width: 150,
+                             decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow( 
+                                  color: Colors.grey,
+                                  offset: Offset(4, 4),
+                                  blurRadius: 5,
+                                  spreadRadius: 5
+                                )
+                              ]
+                             
+                              
+                             ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(9),
+                                child: Column(
+                                  children: [ 
+                                    Image.asset('asset/images/alert_icon.png',width: 100,height: 60,),
+                                    Text('রোজা ভাঙ্গার',style: TextStyle( 
+                                
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold
+                                    ),),
+                                    Text('কারন',style: TextStyle( 
+                                
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                    ),),
+                                  ],
+                                
+                                ),
+                              )
+                             ),
+                           ),
+                         )
+                        ],
                       ),
-                    )
-                  ],
-                  
+      
+                     
+                      /*
+      
+      
+       //2nd row
+       //2nd row
+                     //2nd row
+      
+      
+      
+                      */
+                       Row( 
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [ 
+                    
+                         Padding(
+                           padding: const EdgeInsets.only(top: 30),
+                           child: InkWell(
+                            onTap: () {
+                              buttom_sheet3();
+                            },
+                            splashColor: const Color.fromARGB(255, 140, 136, 136),
+                             child: Ink(
+                             height: 130,
+                             width: 150,
+                             decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow( 
+                                  color: Colors.grey,
+                                  offset: Offset(4, 4),
+                                  blurRadius: 5,
+                                  spreadRadius: 5
+                                )
+                              ]
+                             
+                              
+                             ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [ 
+                                    Image.asset('asset/images/mosjid_icon.png',width: 100,height: 70,),
+                                    SizedBox(height: 5,),
+                                    Text('রোজার ফজিলত',style: TextStyle( 
+                                
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold
+                                    ),)
+                                  ],
+                                
+                                ),
+                              )
+                             ),
+                           ),
+                         ),
+                         Padding(
+                           padding: const EdgeInsets.only(top: 30),
+                           child: InkWell(
+                            onTap: () {
+                              buttom_sheet4();
+                            },
+                            splashColor: const Color.fromARGB(255, 140, 136, 136),
+                             child: Ink(
+                             height: 130,
+                             width: 150,
+                             decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow( 
+                                  color: Colors.grey,
+                                  offset: Offset(4, 4),
+                                  blurRadius: 5,
+                                  spreadRadius: 5
+                                )
+                              ]
+                             
+                              
+                             ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(9),
+                                child: Column(
+                                  children: [ 
+                                    Image.asset('asset/images/star_icon.png',width: 100,height: 75,),
+                                    Text('ইফতারের দোয়া',style: TextStyle( 
+                                
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold
+                                    ),),
+                                    
+                                  ],
+                                
+                                ),
+                              )
+                             ),
+                           ),
+                         )
+                        ],
+                      ),
+                      SizedBox(height: 30,),
+      
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: InkWell(
+                          onTap: () {
+                            buttom_sheet5();
+                          },
+                          splashColor: const Color.fromARGB(255, 140, 136, 136),
+                          child: Ink( 
+                             height: 50,
+                               width: 210,
+                               decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 47, 118, 224),
+                                borderRadius: BorderRadius.circular(8),
+                                boxShadow: [
+                                  BoxShadow( 
+                                    color: Colors.grey,
+                                    offset: Offset(4, 4),
+                                    blurRadius: 5,
+                                    spreadRadius: 5
+                                  )
+                                ]
+                               
+                          
+                               ),
+                             child: Column( 
+                           children: [ 
+                            SizedBox(height: 8,),
+                            Text('ইসলামিক প্রশ্ন ও উত্তর',style:  TextStyle( 
+                          
+                              color: Colors.white,
+                               fontSize: 20,
+                               fontWeight: FontWeight.bold
+                            ),)
+                           ],
+                          
+                             ),
+                          ),
+                        ),
+                      )
+                    ],
+                    
+                  ),
                 ),
-              ),
-            );
-          }
-        },
+              );
+            }
+          },
+        ),
       ),
     );
   }
